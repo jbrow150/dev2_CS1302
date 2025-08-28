@@ -1,0 +1,15 @@
+commit 8ab36d5d922c8b05053c7e96fcfb552dd14bcf1f
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Wed Aug 27 11:10:37 2025 -0400
+
+    adding finished lab with set changes
+    
+    completed task 1 added class
+    completed task 2 added constants
+    added main and views package for SOC and to run in console
+
+commit 11f1aaf6c1bea71401397a64d4d63f199097a424
+Author: jbrow150 <jbrow150@my.westga.edu>
+Date:   Wed Aug 27 10:44:53 2025 -0400
+
+    Initial commit
