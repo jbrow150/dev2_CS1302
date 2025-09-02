@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.lab2.model.Bill;
+import edu.westga.cs1302.lab2.model.BillItem;
 
 class TestAddItem {
 
@@ -13,11 +14,26 @@ class TestAddItem {
 	void testAddItemNull() {
 		//arrange
 		Bill bill = new Bill();
-		//act
-		bill.addItem(null);
-		//assert
-		assertThrows(IllegalArgumentException.class, () ->  { bill.addItem(null); }); 
+		
+		 // assert + act
+        assertThrows(IllegalArgumentException.class, () -> {
+            bill.addItem(null);
+        });
 		
 	}
+	
+	@Test
+	void testAddItemSingle() {
+		  // arrange
+        Bill bill = new Bill();
+        BillItem item = new BillItem("Burger", 10.50);
 
-}
+        // act
+        bill.addItem(item);
+
+        // assert
+        assertEquals(1, bill.getItems().size());
+        assertSame(item, bill.getItems().get(0));
+		} 
+	}
+
