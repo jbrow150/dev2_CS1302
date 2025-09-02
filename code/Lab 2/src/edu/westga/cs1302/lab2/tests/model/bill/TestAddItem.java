@@ -34,6 +34,23 @@ class TestAddItem {
         // assert
         assertEquals(1, bill.getItems().size());
         assertSame(item, bill.getItems().get(0));
+		}
+	
+	@Test
+	void testAddItemmultiple() {
+		  // arrange
+        Bill bill = new Bill();
+        BillItem item1 = new BillItem("Burger", 10.50);
+        BillItem item2= new BillItem("Fries", 5.25);
+
+        // act
+        bill.addItem(item1);
+        bill.addItem(item2);
+
+        // assert
+        assertEquals(2, bill.getItems().size());
+        assertSame(item1, bill.getItems().get(0));
+        assertSame(item2, bill.getItems().get(1));
 		} 
 	}
 
