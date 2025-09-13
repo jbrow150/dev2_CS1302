@@ -1,7 +1,7 @@
-package edu.westga.cs1302.Lab3.views;
+package edu.westga.cs1302.bill.view;
 
-import edu.westga.cs1302.Lab3.model.Bill;
-import edu.westga.cs1302.Lab3.model.BillItem;
+import edu.westga.cs1302.bill.model.Bill;
+import edu.westga.cs1302.bill.model.BillItem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
