@@ -1,0 +1,70 @@
+commit 330c45322e9570974604812933f7d1802aa8777c
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Sat Sep 13 17:17:45 2025 -0400
+
+    Added static method for subtotal and cleaned up deletions
+
+commit c2e5b81e47ab0e0772abff45e175f815714bd911
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Sat Sep 13 17:04:13 2025 -0400
+
+     added BillCalculator class
+
+commit 67152f5bf82c448c1d2c1f925c8094e3197ae248
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Sat Sep 6 14:09:38 2025 -0400
+
+     added MainWindow logic and FXML tags UI from scenebuilder for adding bill items
+
+commit 462bcad08eed05ed3fddd25bb3f7cb0ac9feb3e5
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Tue Sep 2 12:25:41 2025 -0400
+
+    added test cases for when adding an item to list (null, single, multiple). added test cases for the constructor (valid, negative values, and when zero). added test cases for getText( empty list, total is zero, test when valid)
+
+commit e0bd1ce2dfe8feb433328229c42879aab9bc0944
+Merge: 4005b9f 2c6184f
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Tue Sep 2 11:01:51 2025 -0400
+
+    Merge branch 'dev' of https://github.com/jbrow150/dev2_CS1302 into dev
+
+commit 4005b9fccd594bc0d83ec38580706a1870610746
+Author: jbrow150 <jbrow150@csvlab-vm33.uwg.westga.edu>
+Date:   Tue Sep 2 10:54:14 2025 -0400
+
+    altered assert and act stage to make empty bill item test case
+
+commit 2c6184f2dca5e0467d404ec40a039065e5678956
+Author: jbrow150 <jbrow150@my.westga.edu>
+Date:   Thu Aug 28 13:01:36 2025 -0400
+
+    Add files via upload
+
+commit 0e85c1c17d5d0cd7d8303d54c9779127247cbeb6
+Author: jbrow150 <jbrow150@my.westga.edu>
+Date:   Thu Aug 28 13:00:33 2025 -0400
+
+    Add files via upload
+
+commit 2db6f5de61aa2a34b075149cf71866cd4a5cecba
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Thu Aug 28 12:57:39 2025 -0400
+
+     added test case for if addItem() == null
+
+commit 8ab36d5d922c8b05053c7e96fcfb552dd14bcf1f
+Author: Johnathan Michael Brown <jbrow150@my.westga.edu>
+Date:   Wed Aug 27 11:10:37 2025 -0400
+
+    adding finished lab with set changes
+    
+    completed task 1 added class
+    completed task 2 added constants
+    added main and views package for SOC and to run in console
+
+commit 11f1aaf6c1bea71401397a64d4d63f199097a424
+Author: jbrow150 <jbrow150@my.westga.edu>
+Date:   Wed Aug 27 10:44:53 2025 -0400
+
+    Initial commit

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.javafx_sample_starter.views.MainWindow">
+   <content>
+      <VBox alignment="CENTER" prefHeight="840.0" prefWidth="557.0" spacing="20.0">
+      	<padding>
+      		<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      	</padding>
+      	<children>
+      
+      		<HBox spacing="10">
+      			<children>
+      				<Label text="Task Name:" />
+      				<TextField fx:id="taskNameField" prefHeight="25.0" prefWidth="260.0" promptText="Enter task name" />
+      			</children>
+      		</HBox>
+      
+      
+      		<HBox alignment="CENTER" spacing="10">
+      			<children>
+      				<Label text="Description:" />
+      				<TextArea fx:id="taskDescriptionArea" prefHeight="71.0" prefRowCount="3" prefWidth="394.0" promptText="Enter task description" wrapText="true" />
+      			</children>
+      		</HBox>
+      
+      
+      		<HBox spacing="10">
+      			<children>
+      				<Label text="Priority:" />
+      				<ComboBox fx:id="priorityComboBox" prefWidth="150" />
+      			</children>
+      		</HBox>
+      
+      
+      		<Button fx:id="addTaskButton" text="Add Task" />
+      
+      
+      		<ListView fx:id="taskListView" prefHeight="300.0" />
+      
+      		<Button fx:id="removeTaskButton" onAction="#handleRemoveTask" text="Remove Selected Task" />
+      
+      		<Label text="Selected Task Description:" />
+      		<TextArea fx:id="selectedDescriptionArea" editable="true" prefRowCount="3" wrapText="true" />
+      
+      		<Label text="Selected Task Priority:" />
+      		<TextField fx:id="selectedPriorityField" editable="false" />
+      
+      		<Button onAction="#handleUpdateDescription" text="Update Description" />
+      
+      		<Label text="Low Priority Count:" />
+      		<Label fx:id="lowPriorityCountLabel" text="0" />
+      
+      		<Label text="Medium Priority Count:" />
+      		<Label fx:id="mediumPriorityCountLabel" text="0" />
+      
+      		<Label text="High Priority Count:" />
+      		<Label fx:id="highPriorityCountLabel" text="0" />
+      
+      		<Button onAction="#handleCountTasksByPriority" text="Count Tasks by Priority" />
+      
+      	</children>
+      </VBox>
+   </content>
+</ScrollPane>
