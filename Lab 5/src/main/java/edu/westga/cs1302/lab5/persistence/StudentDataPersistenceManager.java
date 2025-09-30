@@ -48,25 +48,27 @@ public class StudentDataPersistenceManager {
 	 * @throws IOException unable to read file due to formatting issue 
 	 */
 	public static Student[] loadStudentData() throws FileNotFoundException, IOException {
-		ArrayList<Student> students = new ArrayList<Student>();
-		File inputFile = new File(StudentDataPersistenceManager.FILE_LOCATION);
-		
-		try (Scanner reader = new Scanner(inputFile)) {
-			while (reader.hasNextLine()) {
-				String name = reader.nextLine();
-				if (!reader.hasNextLine()) {
-					throw new IOException("missing grade for " + name);
-				}
-				int grade = Integer.parseInt(reader.nextLine());
-				students.add(new Student(name, grade));
-			}
-		} catch (NumberFormatException error) {
-			throw new IOException("grade value was not formatted as an integer (" + error.getMessage() + ")");
-		} catch (IllegalArgumentException error) {
-			throw new IOException(error.getMessage());
-		}
-		
-		return students.toArray(new Student[0]);
+	    ArrayList<Student> students = new ArrayList<Student>();
+	    File inputFile = new File(StudentDataPersistenceManager.FILE_LOCATION);
+
+	    try (Scanner reader = new Scanner(inputFile)) {
+	        while (reader.hasNextLine()) {
+	            String line = reader.nextLine();
+	            String[] parts = line.split(",");
+	            if (parts.length != 2) {
+	                throw new IOException("Invalid line format: " + line);
+	            }
+	            String name = parts[0].trim();
+	            int grade = Integer.parseInt(parts[1].trim());
+	            students.add(new Student(name, grade));
+	        }
+	    } catch (NumberFormatException error) {
+	        throw new IOException("grade value was not formatted as an integer (" + error.getMessage() + ")");
+	    } catch (IllegalArgumentException error) {
+	        throw new IOException(error.getMessage());
+	    }
+
+	    return students.toArray(new Student[0]);
 	}
 	
 }
