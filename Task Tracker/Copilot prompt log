@@ -1,0 +1,183 @@
+Copilot - **C
+Johhnathan - **J
+
+**J: I have two Java classes in eclipse that implement comparators for a Task class: 
+Ascending – which sorts tasks by priority from LOW to HIGH. 
+Descending – which sorts tasks by priority from HIGH to LOW. 
+Can you review both classes below for correctness and good coding practices?:
+ 
+package edu.westga.cs1302.task_tracker.model; import java.util.Comparator;
+ /** * Comparator that sorts tasks in ascending order of priority: 
+ * LOW → MEDIUM → HIGH 
+ * 
+ * @author CS1302
+ * @version Fall 2025 
+ */
+  
+ public class Ascending implements Comparator<Task>{
+  
+  @Override public int compare(Task t1, Task t2) { 
+  return Integer.compare(t1.getPriority().ordinal(), t2.getPriority().ordinal()); 
+  }
+  
+  @Override public String toString() {
+  return "Ascending";
+   }
+  } 
+  
+  package edu.westga.cs1302.task_tracker.model;
+  import java.util.Comparator;
+  /**
+  * Comparator that sorts tasks in descending order of priority:
+  * HIGH → MEDIUM → LOW
+  *
+  * This comparator makes higher priority tasks come first. *
+  * @author CS1302 
+  * @version Fall 2025
+  */
+  
+  public class Descending implements Comparator<Task> {
+  
+  @Override public int compare(Task t1, Task t2) {
+  return Integer.compare(t2.getPriority().ordinal(), t1.getPriority().ordinal());
+  }
+  @Override public String toString() {
+  return "Descending"; 
+    }
+  } 
+Also, can you help me write some JUnit test cases to make sure both comparators work correctly when sorting a list of tasks?
+
+**C: Great question — let’s break this into two parts: reviewing your comparator classes and then writing JUnit tests to validate them.
+
+✅ Code Review of Ascending and Descending
+Strengths
+Correctness: Both comparators correctly use Integer.compare with the ordinal() of the enum values. This ensures consistent ordering.
+
+Clarity: The Javadoc comments clearly describe the intended order.
+
+Override annotations: You’ve properly annotated compare and toString with @Override.
+
+Simplicity: The implementation is concise and easy to read.
+
+Suggestions for Improvement
+Naming:
+
+Ascending and Descending are fine, but you might consider PriorityAscendingComparator and PriorityDescendingComparator for clarity and discoverability.
+
+Enum reliance:
+
+Using ordinal() works, but it ties the comparator to the enum’s declaration order. If someone later reorders the enum constants, the sort order changes unintentionally.
+
+Safer approach: give your Priority enum an explicit numeric value (e.g., LOW(1), MEDIUM(2), HIGH(3)) and compare those instead.
+
+java
+public enum Priority {
+    LOW(1), MEDIUM(2), HIGH(3);
+
+    private final int level;
+
+    Priority(int level) {
+        this.level = level;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+}
+Then in your comparator:
+
+java
+return Integer.compare(t1.getPriority().getLevel(), t2.getPriority().getLevel());
+Null safety:
+
+Currently, if t1 or t2 is null, or their priority is null, you’ll get a NullPointerException. Depending on your requirements, you may want to handle nulls explicitly.
+
+🧪 JUnit Test Cases
+Here’s an example using JUnit 5. I’ll assume your Task class looks something like this:
+
+java
+public class Task {
+    private String name;
+    private Priority priority;
+
+    public Task(String name, Priority priority) {
+        this.name = name;
+        this.priority = priority;
+    }
+
+    public Priority getPriority() {
+        return this.priority;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + " (" + this.priority + ")";
+    }
+}
+Test Class
+java
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+
+public class ComparatorTests {
+
+    @Test
+    void testAscendingComparatorSortsLowToHigh() {
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(new Task("Task1", Priority.HIGH));
+        tasks.add(new Task("Task2", Priority.LOW));
+        tasks.add(new Task("Task3", Priority.MEDIUM));
+
+        tasks.sort(new Ascending());
+
+        assertEquals(Priority.LOW, tasks.get(0).getPriority());
+        assertEquals(Priority.MEDIUM, tasks.get(1).getPriority());
+        assertEquals(Priority.HIGH, tasks.get(2).getPriority());
+    }
+
+    @Test
+    void testDescendingComparatorSortsHighToLow() {
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(new Task("Task1", Priority.LOW));
+        tasks.add(new Task("Task2", Priority.HIGH));
+        tasks.add(new Task("Task3", Priority.MEDIUM));
+
+        tasks.sort(new Descending());
+
+        assertEquals(Priority.HIGH, tasks.get(0).getPriority());
+        assertEquals(Priority.MEDIUM, tasks.get(1).getPriority());
+        assertEquals(Priority.LOW, tasks.get(2).getPriority());
+    }
+
+    @Test
+    void testAscendingComparatorEquality() {
+        Task t1 = new Task("Task1", Priority.MEDIUM);
+        Task t2 = new Task("Task2", Priority.MEDIUM);
+
+        Ascending asc = new Ascending();
+        assertEquals(0, asc.compare(t1, t2));
+    }
+
+    @Test
+    void testDescendingComparatorEquality() {
+        Task t1 = new Task("Task1", Priority.HIGH);
+        Task t2 = new Task("Task2", Priority.HIGH);
+
+        Descending desc = new Descending();
+        assertEquals(0, desc.compare(t1, t2));
+    }
+}
+🎯 Key Takeaways
+Your comparators are correct and clean as written.
+
+For robustness, consider avoiding ordinal() and handling nulls.
+
+The JUnit tests above verify both ascending and descending order, as well as equality cases.
+
+Would you like me to also show you how to parameterize these tests (so you don’t repeat similar code for ascending vs descending), or do you prefer keeping them explicit and separate for clarity?
+
