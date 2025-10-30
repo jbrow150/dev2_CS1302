@@ -1,0 +1,36 @@
+Commit_Log
+
+Commit: 001
+Date: 2025-10-29
+Author: Johnathan B
+Message: Updated MainWindow controller to add tasks, remove tasks, update descriptions, count priorities, and bind UI elements.
+
+Commit: 002
+Date: 2025-10-29
+Author: Johnathan B
+Message: Updated MainWindow.fxml to include all UI components, including TextFields, TextAreas, ListView, ComboBoxes, Buttons, and Labels for task tracking.
+
+Commit: 003
+Date: 2025-10-29
+Author: Johnathan B
+Message: Added Ascending and Descending comparators for sorting tasks by name (Task 2A) and by priority then name (Task 2B). Updated MainWindow to support sorting tasks based on these comparators.
+
+Commit: 004
+Date: 2025-10-29
+Author: Johnathan B
+Message: Implemented additional comparators for sorting tasks by name ascending/descending and by priority then name ascending/descending (Task 3A, 3B, 3C). Updated MainWindow to allow dynamic sorting via ComboBox.
+
+Commit: 005
+Date: 2025-10-29
+Author: Johnathan B
+Message: Added label counters and method to count task priorities in MainWindow (Task 4A). Linked countPriorities button to display high, medium, low counts (Task 4B).
+
+Commit: 006
+Date: 2025-10-29
+Author: Johnathan B
+Message: Implemented unit tests for AscendingByName, AscendingByPriorityThenName, DescendingByName, and DescendingByPriorityThenName. Each comparator tested with 3 sunny day and 3 rainy day scenarios (Task 5).
+
+Commit: 007
+Date: 2025-10-29
+Author: Johnathan B
+Message: Added commit_log.txt to track all manual commits for project Tasks 1–4.
