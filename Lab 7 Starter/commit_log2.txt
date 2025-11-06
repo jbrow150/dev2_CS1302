@@ -1,0 +1,31 @@
+commit_log2.txt
+
+Commit: 001
+Date: 2025-11-05
+Author: Johnathan B
+Message: Implemented PasswordGeneratorViewModel class with JavaFX properties for minimum length, must-have digit, must-have upper/lower case letters, and generated password.
+Added generatePassword() method to update generated password property based on model.
+
+Commit: 002
+Date: 2025-11-05
+Author: Johnathan B
+Message: Updated MainWindow.java to use PasswordGeneratorViewModel.
+Bound all UI elements to corresponding ViewModel properties using bindings and text property converter for minimum length.
+Replaced direct PasswordGenerator calls with ViewModel method calls.
+
+Commit: 003
+Date: 2025-11-05
+Author: Johnathan B
+Message: Modified MainWindow.fxml to prepare for bindings.
+Removed onAction or prepared for ViewModel-driven generatePassword call.
+Added fx:id to the generate password button where needed for binding.
+
+Commit: 004
+Date: 2025-11-05
+Author: Johnathan B
+Message: Adjusted Main.java to remain compatible with new binding architecture.
+
+Commit: 005
+Date: 2025-11-05
+Author: Johnathan B
+Message: Added manual commit_log.txt file to project root to track all updates and changes across MainWindow, MainWindow.fxml, Main.java, and PasswordGeneratorViewModel.
