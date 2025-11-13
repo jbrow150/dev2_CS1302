@@ -1,0 +1,35 @@
+commit_log.txt
+
+Commit: 001
+Date: 2025-11-12
+Author: Johnathan B
+Message: Implemented input validation for minimum length in ViewModel.
+Added listener to ensure only positive integers are accepted for password length.
+Display error messages through errorText property when invalid input is detected.
+
+Commit: 002
+Date: 2025-11-12
+Author: Johnathan B
+Message: Updated ViewModel to keep an ObservableList of previously generated passwords.
+Each generated password is now stored in a list that can be viewed in the GUI.
+Added getPasswordHistory() to expose the list to the View.
+
+Commit: 003
+Date: 2025-11-12
+Author: Johnathan B
+Message: Modified MainWindow.java to bind ListView to the password history from the ViewModel.
+Removed TextArea used for displaying a single password and replaced with ListView showing all generated passwords.
+Updated bindings for validation and error messages.
+
+Commit: 004
+Date: 2025-11-12
+Author: Johnathan B
+Message: Updated MainWindow.fxml to include a ListView instead of TextArea.
+
+Commit: 005
+Date: 2025-11-12
+Author: Johnathan B
+Message: Fixed FXML import issue causing "ListView is not a valid type" runtime error.
+Replaced import TextArea with import ListView statements for all used JavaFX controls.
+
+
