@@ -1,0 +1,33 @@
+commit_log.txt
+
+Commit: 001
+Date: 2025-11-19
+Author: Johnathan B
+Message: Added MenuBar to MainWindow.fxml with File menu containing Save, About, and Close items.
+Configured FXML to define MenuBar and its MenuItems correctly, avoiding runtime errors from invalid types.
+
+Commit: 002
+Date: 2025-11-19
+Author: Johnathan B
+Message: Implemented Save functionality in MainWindow.java using FileChooser.
+Passwords from history are written to a user-selected .txt file, one per line.
+Added error handling with Alert dialogs for any IOExceptions during save.
+
+Commit: 003
+Date: 2025-11-19
+Author: Johnathan B
+Message: Implemented About menu item in MainWindow.java.
+Displays an informational Alert with project description and author name.
+
+Commit: 004
+Date: 2025-11-19
+Author: Johnathan B
+Message: Implemented Close menu item in MainWindow.java.
+Closes MainWindow safely using ((Node)this.generatePasswordButton).getScene().getWindow().hide().
+
+Commit: 005
+Date: 2025-11-19
+Author: Johnathan B
+Message: Added listener to minimumLength TextField to enable/disable Generate Password button.
+Button is disabled when input is empty or non-numeric, and enabled when a valid positive integer is entered.
+Updated minLengthErrorText label to show validation errors in real-time.
