@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="guiPane" minHeight="600.0" minWidth="500.0" prefHeight="600.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/24.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.westga.cs1302.comic_collection_app.view.MainWindow">
+
+    <children>
+        <!-- Collection Name Input -->
+        <Label layoutX="20.0" layoutY="10.0" text="Collection Name:"/>
+        <TextField fx:id="collectionNameField" layoutX="140.0" layoutY="7.0" prefWidth="200.0" />
+
+        <!-- Add Collection Button -->
+        <Button fx:id="addCollectionButton" layoutX="360.0" layoutY="7.0" text="Add Collection" />
+
+        <!-- Remove Collection Button -->
+        <Button fx:id="removeCollectionButton" layoutX="360.0" layoutY="40.0" text="Remove Collection" />
+        
+        <Button fx:id="findComicButton" layoutX="20.0" layoutY="200.0" text="Find Comic"/>
+
+        <!-- List of Collections -->
+        <ListView fx:id="collectionsListView" layoutX="20.0" layoutY="70.0" prefWidth="440.0" prefHeight="200.0">
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="removeContextMenuItem" text="Remove Collection" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </ListView>
+
+        <!-- Comics List -->
+        <Label layoutX="20.0" layoutY="290.0" text="Comics:"/>
+        <ListView fx:id="comicsListView" layoutX="20.0" layoutY="310.0" prefWidth="440.0" prefHeight="200.0">
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="removeComicContextMenuItem" text="Remove Comic" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </ListView>
+
+        <!-- Add/Remove Comic Buttons -->
+        <Button fx:id="addComicButton" layoutX="20.0" layoutY="520.0" text="Add Comic"/>
+        <Button fx:id="removeComicButton" layoutX="120.0" layoutY="520.0" text="Remove Comic"/>
+
+    </children>
+</AnchorPane>

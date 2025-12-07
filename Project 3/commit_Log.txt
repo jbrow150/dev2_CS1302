@@ -1,0 +1,70 @@
+commit_Log.txt
+
+Commit: 001
+Date: 2025-12-06
+Author: Johnathan B
+Message: Implemented ComicCollection model and MainWindow skeleton.
+- Added ComicCollection.java to store collection name and ObservableList of comics.
+- Implemented addCollection() and removeCollection() methods in MainWindowViewModel.
+- Created MainWindow.fxml with TextField for collection name, ListView for collections, and add/remove buttons.
+- Bound TextField and ListView to MainWindowViewModel properties.
+- Added addCollectionButton.disableProperty() binding to prevent adding empty collections.
+- Verified basic collection management functionality.
+
+Commit: 002
+Date: 2025-12-06
+Author: Johnathan B
+Message: Added Comic model and functionality to add comics to collections.
+- Created Comic.java with title and issueNumber properties.
+- Updated ComicCollection.java to store ObservableList<Comic> and methods addComic() and removeComic().
+- Added AddComicWindow.fxml and AddComicWindow.java for entering new comic details.
+- Added Add Comic button in MainWindow to open AddComicWindow modally.
+- Bound AddComicWindow TextFields to ViewModel properties (title and issue number).
+- Add button only enabled when both TextFields are non-empty.
+- Cancel button closes AddComicWindow without changes.
+
+Commit: 003
+Date: 2025-12-06
+Author: Johnathan B
+Message: Integrated comic removal from collections.
+- Added removeComicButton in MainWindow.fxml and corresponding handler in MainWindow.java.
+- Added context menu option to ListView for removing selected comic.
+- Bound selected comic in ListView to MainWindowViewModel.selectedComic property.
+- Updated removeComic() in MainWindowViewModel to remove selected comic from selected collection.
+- Disabled removeComicButton when no comic is selected.
+
+Copy code
+Commit: 004
+Date: 2025-12-06
+Author: Johnathan B
+Message: Implemented Find Comic functionality with Map-based lookup.
+- Added Map<String, Comic> to MainWindowViewModel for fast search (key = title + issue number).
+- Created FindComicWindow.fxml and FindComicWindow.java to accept title and issue number input.
+- Search button in MainWindow launches FindComicWindow modally.
+- Bound FindComicWindow TextFields to ViewModel properties.
+- Input validation: search button only enabled when both title and issue number fields are non-empty.
+- Display result in modal popup; show message if comic not found.
+
+Copy code
+Commit: 005
+Date: 2025-12-06
+Author: Johnathan B
+Message: General cleanup, FXML fixes, and resource management.
+- Corrected all FXML paths to match src/main/resources structure.
+- Fixed NullPointerExceptions due to missing fx:id bindings in MainWindow.fxml and AddComicWindow.fxml.
+- Verified all buttons and ListViews are properly bound to controller @FXML fields.
+- Updated pom.xml to include JavaFX dependencies and resources plugin.
+- Confirmed full workflow: add/remove collection, add/remove comic, search comic.
+- Tested modal AddComicWindow and FindComicWindow interactions.
+
+
+Commit: 006
+Date: 2025-12-06
+Author: Johnathan B
+Message: Input validation enhancements and UI polish.
+- Ensured Add Collection button disabled when TextField is empty.
+- Ensured Add Comic button disabled until title and issue number fields are non-empty.
+- Disabled Remove Comic button when no comic is selected.
+- Updated ListView display to show collection name and comic details clearly.
+- Minor FXML layout adjustments for readability and spacing.
+- Verified all bindings and event handlers work as intended.

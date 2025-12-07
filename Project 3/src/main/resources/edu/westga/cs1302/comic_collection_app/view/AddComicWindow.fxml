@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.westga.cs1302.comic_collection_app.view.AddComicWindow"
+            prefHeight="150.0" prefWidth="350.0">
+
+    <children>
+        <Label layoutX="20" layoutY="20" text="Title:"/>
+        <TextField fx:id="titleField" layoutX="100" layoutY="17" prefWidth="200"/>
+
+        <Label layoutX="20" layoutY="60" text="Issue Number:"/>
+        <TextField fx:id="issueNumberField" layoutX="100" layoutY="57" prefWidth="200"/>
+
+        <Button fx:id="addButton" layoutX="50" layoutY="100" text="Add"/>
+        <Button fx:id="cancelButton" layoutX="150" layoutY="100" text="Cancel"/>
+    </children>
+</AnchorPane>
